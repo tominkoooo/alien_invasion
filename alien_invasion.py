@@ -3,6 +3,7 @@ import sys
 import pygame
 
 from settings import Settings
+from ship import Ship
 
 
 class AlienInvasion:
@@ -22,8 +23,8 @@ class AlienInvasion:
         )
         pygame.display.set_caption("Alien Invasion")
 
-        # Background color
-        self.bg_color = (255, 255, 255)
+        # Definition of shooting spaceship
+        self.ship = Ship(self)
 
     def run_game(self):
         """
@@ -37,6 +38,7 @@ class AlienInvasion:
 
             # Display refresh
             self.screen.fill(self.settings.bg_color)
+            self.ship.blitme()
 
             # Showing modified game screen
             pygame.display.flip()
